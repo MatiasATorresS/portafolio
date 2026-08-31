@@ -1,0 +1,127 @@
+.contact {
+  padding-bottom: 50px;
+}
+
+.contact__content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact__text {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.contact__actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact__btn {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+}
+
+.contact__copy-btn {
+  padding: 16px 28px;
+  font-size: 1.05rem;
+  min-width: 170px;
+  transition: all var(--transition);
+}
+
+.contact__copy-btn:hover {
+  border-color: var(--accent-light);
+  color: var(--accent-light);
+  box-shadow: var(--shadow-glow);
+}
+
+.contact__footer {
+  width: 100%;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact__socials {
+  display: flex;
+  gap: 24px;
+}
+
+.contact__socials a {
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+
+.contact__socials a:hover {
+  color: var(--accent-light);
+  transform: translateY(-3px);
+}
+
+.contact__copyright {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ── Toast notification ── */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  width: fit-content;
+  margin-inline: auto;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: rgba(16, 23, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-md);
+  color: var(--accent-light);
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(59, 130, 246, 0.15);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .contact__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .contact__btn,
+  .contact__copy-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .toast {
+    bottom: 20px;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    margin: 0;
+    justify-content: center;
+  }
+}
