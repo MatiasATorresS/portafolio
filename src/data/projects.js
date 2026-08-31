@@ -10,6 +10,7 @@ export const projects = [
       "Diseñé un dashboard SaaS con gráficos, timeline Gantt y command palette que centraliza toda la operación en un solo lugar.",
     tags: ["HTML", "CSS", "JavaScript", "Chart.js"],
     github: "https://github.com/MatiasATorresS/devboard",
+    demoUrl: "https://matiasatorress.github.io/devboard/",
     category: "web",
     featured: true,
   },
@@ -24,6 +25,7 @@ export const projects = [
       "Construí una app estilo Trello/Linear con Drag & Drop nativo y estadísticas SVG, sin dependencias pesadas y con respuesta inmediata.",
     tags: ["HTML", "CSS", "JavaScript", "Drag & Drop API", "SVG"],
     github: "https://github.com/MatiasATorresS/kanbanflow",
+    demoUrl: "https://matiasatorress.github.io/kanbanflow/",
     category: "web",
   },
   {
@@ -37,6 +39,7 @@ export const projects = [
       "Implementé un CRUD completo con validación de RUT chileno, dashboard de métricas y exportación a PDF para agilizar la administración.",
     tags: ["HTML", "CSS", "JavaScript", "Chart.js", "jsPDF"],
     github: "https://github.com/MatiasATorresS/biblioteca",
+    demoUrl: "https://matiasatorress.github.io/biblioteca/",
     category: "web",
   },
   {
@@ -50,6 +53,7 @@ export const projects = [
       "Desarrollé un sistema con control de productos y proveedores, historial de movimientos y dashboard de métricas para auditar cada cambio.",
     tags: ["HTML", "CSS", "JavaScript", "Chart.js"],
     github: "https://github.com/MatiasATorresS/stockflow",
+    demoUrl: "https://matiasatorress.github.io/stockflow/",
     category: "web",
   },
   {
@@ -63,6 +67,7 @@ export const projects = [
       "Creé un gestor de taller con registro de vehículos, órdenes de trabajo, seguimiento de reparaciones y estadísticas del servicio.",
     tags: ["HTML", "CSS", "JavaScript", "Chart.js"],
     github: "https://github.com/MatiasATorresS/autocare",
+    demoUrl: "https://matiasatorress.github.io/autocare/",
     category: "web",
   },
   {
@@ -89,6 +94,7 @@ export const projects = [
       "Hice un kanban con drag & drop, filtros, tema claro/oscuro y persistencia en localStorage, sin servidor ni dependencias pesadas.",
     tags: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/MatiasATorresS/TODO",
+    demoUrl: "https://matiasatorress.github.io/TODO/",
     category: "web",
   },
   {
