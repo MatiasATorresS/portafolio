@@ -126,7 +126,7 @@ export default function Navbar() {
             ))}
             <li>
               <a
-                href="/Matias_Torres_Sandoval_CV.pdf"
+                href={import.meta.env.BASE_URL + "Matias_Torres_Sandoval_CV.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="navbar__cv-btn"
@@ -178,7 +178,7 @@ export default function Navbar() {
               ))}
               <li>
                 <a
-                  href="/Matias_Torres_Sandoval_CV.pdf"
+                  href={import.meta.env.BASE_URL + "Matias_Torres_Sandoval_CV.pdf"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="navbar__cv-btn navbar__mobile-cv"

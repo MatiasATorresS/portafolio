@@ -94,7 +94,7 @@ export default function Contact() {
                 <LinkedinIcon size={22} />
               </a>
               <a
-                href="/Matias_Torres_Sandoval_CV.pdf"
+                href={import.meta.env.BASE_URL + "Matias_Torres_Sandoval_CV.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Curriculum">

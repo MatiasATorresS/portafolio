@@ -32,7 +32,7 @@ export default function Hero() {
                 Ver Proyectos <ArrowRight size={18} />
               </button>
               <a
-                href="/Matias_Torres_Sandoval_CV.pdf"
+                href={import.meta.env.BASE_URL + "Matias_Torres_Sandoval_CV.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--secondary">
@@ -47,9 +47,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
             className="hero__avatar">
             <picture>
-              <source srcSet="/profile_avatar.webp" type="image/webp" />
+              <source srcSet={import.meta.env.BASE_URL + "profile_avatar.webp"} type="image/webp" />
               <img
-                src="/profile_avatar.png"
+                src={import.meta.env.BASE_URL + "profile_avatar.png"}
                 alt="Matías Torres Sandoval"
                 className="hero__avatar-img"
                 width="280"
