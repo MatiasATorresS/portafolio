@@ -1,5 +1,20 @@
 export const projects = [
   {
+    id: 10,
+    name: "AprendizajeIngles",
+    description:
+      "Plataforma web full-stack de apoyo al aprendizaje de inglés para estudiantes de primero medio. Lecciones por unidades del año y un asistente con IA que genera ejercicios personalizados de forma automática sobre los temas de cada unidad.",
+    problem:
+      "Existe una baja comprensión de inglés en la educación chilena (reflejada en los resultados históricos del SIMCE), y faltan herramientas accesibles que se adapten al temario del año y den práctica personalizada a los alumnos.",
+    solution:
+      "Diseñé una herramienta web con lecciones organizadas por unidades y un asistente basado en IA (OpenRouter) que crea ejercicios automáticos de los tópicos de las unidades, con seguimiento de progreso y panel de administración.",
+    tags: ["React", "Vite", "Node.js", "Express", "MySQL/TiDB", "IA (OpenRouter)"],
+    github: "https://github.com/MatiasATorresS/AprendizajeIngles",
+    demoUrl: "https://aprendizaje-ingles.vercel.app/",
+    category: "ai",
+    featured: true,
+  },
+  {
     id: 1,
     name: "DevBoard",
     description:
