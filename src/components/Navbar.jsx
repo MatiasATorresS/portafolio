@@ -12,11 +12,13 @@ const links = [
 
 const SECTION_IDS = ["hero", "projects", "about", "skills", "contact"];
 
+const FOCUSABLE_SELECTOR =
+  'button:not([disabled]), a[href]:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const toggleRef = useRef(null);
   const menuRef = useRef(null);
   const previousFocus = useRef(null);
 
@@ -73,7 +75,23 @@ export default function Navbar() {
     document.body.style.overflow = "hidden";
 
     const handleKeydown = (e) => {
-      if (e.key === "Escape") setMobileOpen(false);
+      if (e.key === "Escape") {
+        setMobileOpen(false);
+        return;
+      }
+      if (e.key === "Tab") {
+        const focusables = menuRef.current?.querySelectorAll(FOCUSABLE_SELECTOR);
+        if (!focusables || focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     document.addEventListener("keydown", handleKeydown);
 
@@ -104,8 +122,8 @@ export default function Navbar() {
   };
 
   return (
-    <>
-      <nav className={`navbar ${scrolled || mobileOpen ? "navbar--scrolled" : ""}`}>
+    <header>
+      <nav className={`navbar ${scrolled || mobileOpen ? "navbar--scrolled" : ""}`} aria-label="Principal">
         <div className="navbar__inner container">
           <button className="navbar__logo" onClick={handleHome}>
             <span className="navbar__logo-accent">{"<"}</span>
@@ -119,6 +137,7 @@ export default function Navbar() {
                 <button
                   className={`navbar__link ${activeSection === l.id ? "navbar__link--active" : ""}`}
                   onClick={() => document.getElementById(l.id)?.scrollIntoView({ behavior: "smooth" })}
+                  aria-current={activeSection === l.id ? "true" : undefined}
                 >
                   {l.label}
                 </button>
@@ -137,7 +156,6 @@ export default function Navbar() {
           </ul>
 
           <button
-            ref={toggleRef}
             className="navbar__toggle"
             onClick={() => setMobileOpen((open) => !open)}
             aria-expanded={mobileOpen}
@@ -171,6 +189,7 @@ export default function Navbar() {
                   <button
                     className={`navbar__mobile-link ${activeSection === l.id ? "navbar__mobile-link--active" : ""}`}
                     onClick={() => handleNav(l.id)}
+                    aria-current={activeSection === l.id ? "true" : undefined}
                   >
                     {l.label}
                   </button>
@@ -190,6 +209,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </header>
   );
 }

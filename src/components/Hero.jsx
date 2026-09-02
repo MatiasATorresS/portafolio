@@ -19,7 +19,9 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="hero__text-wrapper">
             <span className="hero__greeting">Hola, soy</span>
-            <h1 className="hero__name">Matías Torres Sandoval.</h1>
+            <h1 className="hero__name">
+              Matías Torres <span className="hero__name-accent">Sandoval.</span>
+            </h1>
             <h2 className="hero__title">Construyo experiencias digitales.</h2>
 
             <p className="hero__description">
@@ -49,7 +51,7 @@ export default function Hero() {
             <picture>
               <source srcSet={import.meta.env.BASE_URL + "profile_avatar.webp"} type="image/webp" />
               <img
-                src={import.meta.env.BASE_URL + "profile_avatar.png"}
+                src={import.meta.env.BASE_URL + "profile_avatar.jpg"}
                 alt="Matías Torres Sandoval"
                 className="hero__avatar-img"
                 width="280"

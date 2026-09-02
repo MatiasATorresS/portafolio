@@ -22,9 +22,9 @@
 }
 
 .scroll-to-top:hover {
-  background: var(--accent);
+  background: var(--accent-dark);
   color: #ffffff;
-  border-color: var(--accent);
+  border-color: var(--accent-dark);
   transform: translateY(-4px);
   box-shadow: 
     0 12px 28px rgba(0, 0, 0, 0.5),

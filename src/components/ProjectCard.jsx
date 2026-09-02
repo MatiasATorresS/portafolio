@@ -6,25 +6,14 @@ import "./ProjectCard.css";
 export default function ProjectCard({ project, onSelect }) {
   const openDetail = () => onSelect(project);
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      openDetail();
-    }
-  };
-
   return (
-    <motion.div
+    <motion.article
       className={`project-card ${project.featured ? "project-card--featured" : ""}`}
       layout
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.35 }}
-      onClick={openDetail}
-      onKeyDown={handleKeyDown}
-      role="button"
-      tabIndex={0}
     >
       <div className="project-card__content">
         {project.featured && (
@@ -39,7 +28,6 @@ export default function ProjectCard({ project, onSelect }) {
                 href={project.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
                 aria-label={`Ver demo en vivo de ${project.name}`}
                 title="Ver demo en vivo"
                 className="project-card__link"
@@ -52,7 +40,6 @@ export default function ProjectCard({ project, onSelect }) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
                 aria-label={`Ver código de ${project.name} en GitHub`}
                 title="Ver repositorio en GitHub"
                 className="project-card__link"
@@ -75,8 +62,10 @@ export default function ProjectCard({ project, onSelect }) {
           ))}
         </div>
 
-        <span className="project-card__more">Ver detalle &rarr;</span>
+        <button className="project-card__more" onClick={openDetail}>
+          Ver detalle &rarr;
+        </button>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }

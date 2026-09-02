@@ -11,7 +11,11 @@ const CATEGORY_LABELS = {
   ai: "IA & Visión",
 };
 
+const FOCUSABLE_SELECTOR =
+  'button:not([disabled]), a[href]:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])';
+
 export default function ProjectModal({ project, onClose }) {
+  const modalRef = useRef(null);
   const closeRef = useRef(null);
   const previousFocus = useRef(null);
   const onCloseRef = useRef(onClose);
@@ -28,7 +32,23 @@ export default function ProjectModal({ project, onClose }) {
     document.body.style.overflow = "hidden";
 
     const handleKeydown = (e) => {
-      if (e.key === "Escape") onCloseRef.current();
+      if (e.key === "Escape") {
+        onCloseRef.current();
+        return;
+      }
+      if (e.key === "Tab") {
+        const focusables = modalRef.current?.querySelectorAll(FOCUSABLE_SELECTOR);
+        if (!focusables || focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     document.addEventListener("keydown", handleKeydown);
 
@@ -55,10 +75,12 @@ export default function ProjectModal({ project, onClose }) {
           onClick={() => onCloseRef.current()}
         >
           <motion.div
+            ref={modalRef}
             className="modal"
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-title"
+            aria-describedby="modal-description"
             onClick={(e) => e.stopPropagation()}
             initial={{ opacity: 0, y: 24, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -112,7 +134,7 @@ export default function ProjectModal({ project, onClose }) {
             )}
 
             <div className="modal__body">
-              <p className="modal__description">{project.description}</p>
+              <p className="modal__description" id="modal-description">{project.description}</p>
               <div className="modal__row">
                 <h4>Problema</h4>
                 <p>{project.problem}</p>

@@ -28,7 +28,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  font-family: inherit;
+  font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 800;
   color: var(--text-primary);

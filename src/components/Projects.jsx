@@ -1,9 +1,10 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, Suspense, lazy } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "./ProjectCard";
-import ProjectModal from "./ProjectModal";
 import { projects } from "../data/projects";
 import "./Projects.css";
+
+const ProjectModal = lazy(() => import("./ProjectModal"));
 
 const CATEGORIES = [
   { id: "all", label: "Todos" },
@@ -72,7 +73,9 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      <ProjectModal project={selected} onClose={closeModal} />
+      <Suspense fallback={null}>
+        <ProjectModal project={selected} onClose={closeModal} />
+      </Suspense>
     </section>
   );
 }

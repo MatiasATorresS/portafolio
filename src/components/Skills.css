@@ -53,8 +53,8 @@
 }
 
 .skills__badge:hover {
-  background: var(--accent);
+  background: var(--accent-dark);
   color: #fff;
-  border-color: var(--accent);
+  border-color: var(--accent-dark);
   transform: scale(1.05);
 }
