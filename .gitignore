@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Archivos locales del sistema de skills
+.agents/
+skills-lock.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
