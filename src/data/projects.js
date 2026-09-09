@@ -114,22 +114,6 @@ export const projects = [
     category: "web",
   },
   {
-    id: 7,
-    name: "TODO",
-    summary: "Un kanban personal con columnas a medida y tus tareas guardadas en el navegador.",
-    image: "projects/todo.png",
-    description:
-      "Gestor de tareas Kanban con múltiples tableros, columnas personalizables, drag & drop, filtros, tema claro/oscuro y persistencia en localStorage.",
-    problem:
-      "Las listas de tareas simples no soportan columnas personalizables ni varios tableros independientes.",
-    solution:
-      "Hice un kanban con drag & drop, filtros, tema claro/oscuro y persistencia en localStorage, sin servidor ni dependencias pesadas.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/MatiasATorresS/TODO",
-    demoUrl: "https://matiasatorress.github.io/TODO/",
-    category: "web",
-  },
-  {
     id: 8,
     name: "Análisis de Siniestros Chile",
     summary: "25 años de datos de CONASET para explorar patrones de riesgo en las rutas de Chile.",

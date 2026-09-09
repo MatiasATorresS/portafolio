@@ -77,10 +77,10 @@ Fecha: 9 de septiembre de 2026. Se revisó el código local y se probó la web e
 - Incorporar capturas de los proyectos: las tarjetas actuales dependen casi exclusivamente de texto y tecnologías.
 - Añadir fechas, funciones concretas y resultados verificables a la trayectoria, que actualmente usa descripciones generales.
 - Añadir estado de carga y alternativa clara para las demos incrustadas; la ficha combina el desplazamiento de su contenido con el del iframe.
-- Revisar el dominio de publicación: canonical, OpenGraph, robots y sitemap usan `matiastorres.dev`, mientras Vite configura `/portafolio/` y el flujo de publicación usa GitHub Pages. Es una inconsistencia que requiere confirmar el destino real; no demuestra por sí sola un fallo de producción.
-- README actualizado: ahora indica los 10 proyectos existentes.
+- Revisar el dominio de publicación: canonical, OpenGraph, robots y sitemap usaban `matiastorres.dev`, mientras el sitio se publica en `https://matiasatorress.github.io/portafolio/`. Resuelto: canonical, og:image, og:url, twitter:image, JSON-LD, robots y sitemap ahora usan la URL real de GitHub Pages (`matiasatorress.github.io/portafolio`). `vite.config.js` con `base: '/portafolio/'` se confirma como correcto.
+- README actualizado: ahora indica los 9 proyectos existentes.
 
-Las capturas de proyectos y el estado de carga de demos quedan como mejoras de presentación posteriores. Añadir resultados profesionales concretos y cambiar el dominio de publicación requiere datos confirmados; no se inventaron métricas ni se cambió el destino de publicación.
+Las capturas de proyectos y el estado de carga de demos quedan como mejoras de presentación posteriores. Añadir resultados profesionales concretos requiere datos confirmados; no se inventaron métricas.
 
 ## Comprobaciones realizadas
 
@@ -101,14 +101,14 @@ Las capturas de proyectos y el estado de carga de demos quedan como mejoras de p
 
 ### Prueba integrada posterior a las correcciones
 
-- Cuatro filtros comprobados: 10 proyectos en Todos, 7 en Desarrollo Web, 1 en Data y 2 en IA.
+- Cuatro filtros comprobados: 9 proyectos en Todos, 6 en Desarrollo Web, 1 en Data y 2 en IA (tras eliminar la entrada TODO duplicada de KanbanFlow).
 - Diez fichas abiertas y cerradas a 320 px, sin desbordamiento horizontal interno y con el botón de cierre dentro de sus límites.
 - Tarjetas y enlaces sin recortes a 320, 390, 768 y 1280 px.
 - Cabecera fija verificada al desplazar AprendizajeIngles hasta el final en móvil; Escape desde el portafolio cierra y devuelve el foco a Ver detalle.
 - Tab y Shift+Tab recorren correctamente el cierre y el enlace GitHub en la ficha sin demo de Scuba Cat.
 - Al ampliar de 390 a 1280 px con el menú abierto, este se cierra y el cuerpo recupera el desplazamiento.
-- Las siete demos enlazadas mostraron contenido: AprendizajeIngles, DevBoard, KanbanFlow, Biblioteca, StockFlow, AutoCare y TODO. Se verificó la carga de entrada, no todas las funciones internas. AprendizajeIngles y StockFlow necesitaron esperar a completar la carga; no eran enlaces rotos.
-- Nuevo detalle de presentación: el proyecto TODO abre una aplicación cuya cabecera dice KanbanFlow. Conviene distinguir su nombre o explicar la relación con el otro proyecto KanbanFlow del catálogo.
+- Las seis demos enlazadas mostraron contenido: AprendizajeIngles, DevBoard, KanbanFlow, Biblioteca, StockFlow y AutoCare. Se verificó la carga de entrada, no todas las funciones internas. AprendizajeIngles y StockFlow necesitaron esperar a completar la carga; no eran enlaces rotos.
+- Resuelto: la entrada TODO se eliminó del catálogo. Su demo apuntaba a la misma aplicación que KanbanFlow (cabecera «KanbanFlow — Gestor de Tareas Premium»), duplicando el proyecto en el portafolio. Se eliminó también su captura `todo.png`.
 - CV confirmado con HTTP 200, tipo application/pdf y cabecera `%PDF-`.
 - Los cuatro escenarios controlados de copia volvieron a pasar. El aviso de éxito aparece en navegador; la comprobación de pegado real quedó limitada por el portapapeles virtual de la herramienta, que no disponía del contenido para pegar. La página temporal de prueba se eliminó.
 - Sin errores ni advertencias en las consultas de consola del portafolio durante esta prueba.

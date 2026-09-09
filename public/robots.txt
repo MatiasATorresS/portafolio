@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://matiastorres.dev/sitemap.xml
+Sitemap: https://matiasatorress.github.io/portafolio/sitemap.xml
