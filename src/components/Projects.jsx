@@ -36,12 +36,13 @@ export default function Projects() {
     <section className="section projects" id="projects">
       <div className="container">
         <span className="section-label">01. Portafolio</span>
-        <h2 className="section-title">Mis Proyectos</h2>
-        <p className="section-subtitle mb-extra">
-          Una selección de mis trabajos recientes, abarcando desarrollo web, análisis
-          de datos e inteligencia artificial. Haz clic en cualquier proyecto para ver
-          el detalle, el problema que resuelve y, en algunos casos, una demo en vivo.
-        </p>
+        <div className="projects__intro">
+          <h2 className="section-title">Ideas que se convierten<br />en proyectos.</h2>
+          <p className="section-subtitle">
+            Desarrollo web, datos e inteligencia artificial.<br />
+            Explora cómo trabajo, el código y las demos.
+          </p>
+        </div>
 
         {/* Category Filters */}
         <div className="projects__filters" aria-label="Filtrar proyectos por categoría">
@@ -64,7 +65,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <motion.div layout className="projects__grid">
+        <motion.div layout className={`projects__grid ${activeCategory === "all" ? "projects__grid--all" : ""}`}>
           <AnimatePresence mode="popLayout">
             {sortedProjects.map((project) => (
               <ProjectCard key={project.id} project={project} onSelect={setSelected} />

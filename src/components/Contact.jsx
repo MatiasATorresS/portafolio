@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Copy, Check, FileText } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
+import { copyText } from '../utils/clipboard';
 import './Contact.css';
 
 // Ofuscación simple para prevenir recolección automática por bots/scrapers
@@ -11,30 +12,24 @@ const getEmail = () => `${USERNAME}@${DOMAIN}`;
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const [copying, setCopying] = useState(false);
+  const [copyError, setCopyError] = useState(false);
+  const copyTimeout = useRef(null);
+
+  useEffect(() => () => clearTimeout(copyTimeout.current), []);
 
   const handleCopyEmail = async () => {
-    const email = getEmail();
-    try {
-      if (navigator?.clipboard?.writeText) {
-        await navigator.clipboard.writeText(email);
-      } else {
-        throw new Error('Clipboard API unavailable');
-      }
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
-    } catch {
-      // Fallback para entornos que no soporten Clipboard API
-      const textarea = document.createElement('textarea');
-      textarea.value = email;
-      textarea.setAttribute('readonly', '');
-      textarea.style.position = 'absolute';
-      textarea.style.left = '-9999px';
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
+    if (copying) return;
+    clearTimeout(copyTimeout.current);
+    setCopied(false);
+    setCopyError(false);
+    setCopying(true);
+    const success = await copyText(getEmail());
+    setCopying(false);
+    setCopied(success);
+    setCopyError(!success);
+    if (success) {
+      copyTimeout.current = setTimeout(() => setCopied(false), 2500);
     }
   };
 
@@ -71,10 +66,18 @@ export default function Contact() {
             <button
               className="btn btn--secondary contact__copy-btn"
               onClick={handleCopyEmail}
+              disabled={copying}
+              aria-busy={copying}
               aria-label="Copiar email al portapapeles">
-              {copied ? '¡Copiado!' : 'Copiar Email'}{' '}
+              {copying ? 'Copiando…' : copied ? '¡Copiado!' : 'Copiar Email'}{' '}
               {copied ? <Check size={18} /> : <Copy size={18} />}
             </button>
+            {copyError && (
+              <p className="contact__copy-error" role="status">
+                No se pudo copiar. Puedes copiar el correo manualmente:{' '}
+                <span>{getEmail()}</span>
+              </p>
+            )}
           </div>
 
           <div className="contact__footer">

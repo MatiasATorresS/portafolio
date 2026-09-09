@@ -4,7 +4,7 @@ import './Hero.css';
 
 export default function Hero() {
   const scrollToProjects = () => {
-    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'auto' });
   };
 
   return (

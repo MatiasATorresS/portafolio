@@ -43,7 +43,7 @@ pnpm lint       # linter
 
 ## Los proyectos
 
-Aparecen 9, entre ellos:
+Aparecen 10, entre ellos:
 
 - **DevBoard** — un dashboard para desarrolladores.
 - **KanbanFlow** — kanban estilo Trello/Linear con drag & drop.

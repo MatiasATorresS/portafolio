@@ -2,6 +2,8 @@ export const projects = [
   {
     id: 10,
     name: "AprendizajeIngles",
+    summary: "Inglés para primero medio, con lecciones por unidad y práctica personalizada con IA.",
+    image: "projects/ingles.png",
     description:
       "Plataforma web full-stack de apoyo al aprendizaje de inglés para estudiantes de primero medio. Lecciones por unidades del año y un asistente con IA que genera ejercicios personalizados de forma automática sobre los temas de cada unidad.",
     problem:
@@ -17,6 +19,8 @@ export const projects = [
   {
     id: 1,
     name: "DevBoard",
+    summary: "Proyectos, tareas y bugs en un solo dashboard para tomar decisiones con datos.",
+    image: "projects/devboard.png",
     description:
       "Dashboard SaaS de analítica para desarrolladores. Gestión de proyectos, tareas, bugs, estadísticas con gráficos, calendario, timeline Gantt, command palette y exportación a CSV/JSON.",
     problem:
@@ -32,6 +36,8 @@ export const projects = [
   {
     id: 2,
     name: "KanbanFlow",
+    summary: "Organización visual del trabajo con tableros, filtros y drag & drop nativo.",
+    image: "projects/kanbanflow.png",
     description:
       "Gestor de tareas estilo Trello/Linear con Drag & Drop nativo, múltiples tableros, filtros combinables, calendario, estadísticas SVG e historial de actividad.",
     problem:
@@ -46,6 +52,8 @@ export const projects = [
   {
     id: 3,
     name: "Biblioteca",
+    summary: "Libros, usuarios y préstamos bajo control, con métricas y reportes en PDF.",
+    image: "projects/biblioteca.png",
     description:
       "Sistema de gestión de biblioteca: CRUD de libros, usuarios y préstamos/devoluciones. Dashboard con métricas, gráficos, exportación a PDF y validación de RUT chileno.",
     problem:
@@ -60,6 +68,8 @@ export const projects = [
   {
     id: 4,
     name: "StockFlow",
+    summary: "Control de inventario con trazabilidad de productos, proveedores y movimientos.",
+    image: "projects/stockflow.png",
     description:
       "Sistema de gestión de inventario: control de productos, proveedores, entradas y salidas de stock con dashboard de métricas e historial de movimientos.",
     problem:
@@ -74,6 +84,8 @@ export const projects = [
   {
     id: 5,
     name: "AutoCare",
+    summary: "Vehículos, reparaciones y órdenes de trabajo para la gestión de un taller.",
+    image: "projects/autocare.png",
     description:
       "Sistema de gestión de taller mecánico: registro de vehículos, órdenes de trabajo, seguimiento de reparaciones y dashboard con estadísticas del taller.",
     problem:
@@ -88,6 +100,9 @@ export const projects = [
   {
     id: 6,
     name: "IncidentHub",
+    summary: "Tickets de soporte con prioridades, seguimiento de SLA y métricas del equipo.",
+    coverLabel: "Soporte con trazabilidad",
+    coverDetail: "Tickets · SLA · Productividad",
     description:
       "Sistema de gestión de incidencias TI: tickets con estados, prioridades, asignación de técnicos, SLA, gráficos de productividad y timeline de actividad.",
     problem:
@@ -101,6 +116,8 @@ export const projects = [
   {
     id: 7,
     name: "TODO",
+    summary: "Un kanban personal con columnas a medida y tus tareas guardadas en el navegador.",
+    image: "projects/todo.png",
     description:
       "Gestor de tareas Kanban con múltiples tableros, columnas personalizables, drag & drop, filtros, tema claro/oscuro y persistencia en localStorage.",
     problem:
@@ -115,6 +132,9 @@ export const projects = [
   {
     id: 8,
     name: "Análisis de Siniestros Chile",
+    summary: "25 años de datos de CONASET para explorar patrones de riesgo en las rutas de Chile.",
+    coverLabel: "25 años de datos",
+    coverDetail: "CONASET · Análisis exploratorio",
     description:
       "Análisis exploratorio de 25 años de datos oficiales de siniestros de tránsito en Chile (CONASET). Visualizaciones por región, horario y tipo de usuario.",
     problem:
@@ -128,6 +148,9 @@ export const projects = [
   {
     id: 9,
     name: "Scuba Cat",
+    summary: "Visión por computador que transforma gestos de manos y rostro en una respuesta visual.",
+    coverLabel: "Gestos en tiempo real",
+    coverDetail: "MediaPipe · Visión por computador",
     description:
       "Aplicación de visión por computador que detecta gestos con la mano y la cara usando MediaPipe, y reproduce un video de un gato buceador como respuesta.",
     problem:

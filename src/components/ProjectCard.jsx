@@ -3,6 +3,8 @@ import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import "./ProjectCard.css";
 
+const CATEGORY_LABELS = { web: "Desarrollo web", data: "Datos & análisis", ai: "IA & visión" };
+
 export default function ProjectCard({ project, onSelect }) {
   const openDetail = () => onSelect(project);
 
@@ -15,13 +17,55 @@ export default function ProjectCard({ project, onSelect }) {
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.35 }}
     >
-      <div className="project-card__content">
-        {project.featured && (
-          <span className="project-card__featured-badge">Destacado</span>
+      <button
+        className={`project-card__preview project-card__preview--${project.category}`}
+        onClick={openDetail}
+        aria-label={`Vista previa y detalle de ${project.name}`}
+      >
+        {project.image ? (
+          <img
+            src={import.meta.env.BASE_URL + project.image}
+            alt={`Captura de ${project.name}`}
+            width="1280"
+            height="800"
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <span className="project-card__cover">
+            <span className="project-card__cover-index" aria-hidden="true">{String(project.id).padStart(2, "0")} /</span>
+            <span className="project-card__cover-title">{project.coverLabel}</span>
+            <span className="project-card__cover-detail">{project.coverDetail}</span>
+          </span>
         )}
+        <span className="project-card__preview-hint" aria-hidden="true">Explorar proyecto ↗</span>
+      </button>
+
+      <div className="project-card__content">
+        <div className="project-card__eyebrow">
+          <span>{CATEGORY_LABELS[project.category]}</span>
+          {project.featured && <span className="project-card__featured-badge">Destacado</span>}
+        </div>
 
         <div className="project-card__header">
           <h3 className="project-card__title">{project.name}</h3>
+        </div>
+
+        <p className="project-card__description">
+          {project.summary || project.description}
+        </p>
+
+        <div className="project-card__tags">
+          {project.tags.slice(0, 3).map((tag) => (
+            <span key={tag} className="project-card__tag">{tag}</span>
+          ))}
+          {project.tags.length > 3 && (
+            <span className="project-card__tag project-card__tag--extra" aria-label={`${project.tags.length - 3} tecnologías más en el detalle`}>+{project.tags.length - 3}</span>
+          )}
+        </div>
+
+        <div className="project-card__footer">
+          <button className="project-card__more" onClick={openDetail}>Ver detalle &rarr;</button>
           <div className="project-card__links">
             {project.demoUrl && (
               <a
@@ -50,21 +94,6 @@ export default function ProjectCard({ project, onSelect }) {
           </div>
         </div>
 
-        <p className="project-card__description">
-          {project.description}
-        </p>
-
-        <div className="project-card__tags">
-          {project.tags.map((tag, idx) => (
-            <span key={idx} className="project-card__tag">
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <button className="project-card__more" onClick={openDetail}>
-          Ver detalle &rarr;
-        </button>
       </div>
     </motion.article>
   );

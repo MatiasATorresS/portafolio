@@ -20,6 +20,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const menuRef = useRef(null);
+  const toggleRef = useRef(null);
   const previousFocus = useRef(null);
 
   useEffect(() => {
@@ -80,17 +81,17 @@ export default function Navbar() {
         return;
       }
       if (e.key === "Tab") {
-        const focusables = menuRef.current?.querySelectorAll(FOCUSABLE_SELECTOR);
-        if (!focusables || focusables.length === 0) return;
-        const first = focusables[0];
-        const last = focusables[focusables.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
-          last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
-          first.focus();
-        }
+        const focusables = [
+          toggleRef.current,
+          ...(menuRef.current?.querySelectorAll(FOCUSABLE_SELECTOR) ?? []),
+        ].filter(Boolean);
+        if (focusables.length === 0) return;
+        const currentIndex = focusables.indexOf(document.activeElement);
+        const nextIndex = e.shiftKey
+          ? (currentIndex <= 0 ? focusables.length - 1 : currentIndex - 1)
+          : (currentIndex + 1) % focusables.length;
+        e.preventDefault();
+        focusables[nextIndex].focus();
       }
     };
     document.addEventListener("keydown", handleKeydown);
@@ -112,13 +113,13 @@ export default function Navbar() {
   const handleNav = (id) => {
     closeMenu();
     document.body.style.overflow = "";
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "auto" });
   };
 
   const handleHome = () => {
     closeMenu();
     document.body.style.overflow = "";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "auto" });
   };
 
   return (
@@ -136,7 +137,7 @@ export default function Navbar() {
               <li key={l.id}>
                 <button
                   className={`navbar__link ${activeSection === l.id ? "navbar__link--active" : ""}`}
-                  onClick={() => document.getElementById(l.id)?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => document.getElementById(l.id)?.scrollIntoView({ behavior: "auto" })}
                   aria-current={activeSection === l.id ? "true" : undefined}
                 >
                   {l.label}
@@ -156,6 +157,7 @@ export default function Navbar() {
           </ul>
 
           <button
+            ref={toggleRef}
             className="navbar__toggle"
             onClick={() => setMobileOpen((open) => !open)}
             aria-expanded={mobileOpen}
