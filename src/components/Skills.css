@@ -13,17 +13,13 @@
 }
 
 .skills__category {
-  background: var(--bg-card);
-  padding: 30px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  transition: transform var(--transition), box-shadow var(--transition);
+  padding: 24px 0;
+  border-top: 1px solid var(--border-strong);
+  transition: border-color var(--transition);
 }
 
 .skills__category:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-glow);
-  border-color: var(--border-hover);
+  border-color: var(--accent);
 }
 
 .skills__category-title {
@@ -42,21 +38,16 @@
 }
 
 .skills__badge {
-  background: rgba(59, 130, 246, 0.1);
-  color: var(--accent-light);
-  padding: 8px 16px;
-  border-radius: var(--radius-xl);
-  font-size: 0.9rem;
-  font-weight: 500;
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  transition: all var(--transition);
+  color: var(--text-secondary);
+  padding: 7px 11px;
+  font: 0.78rem/1.4 var(--font-mono);
+  border: 1px solid var(--border-strong);
+  transition: color var(--transition), border-color var(--transition);
 }
 
 .skills__badge:hover {
-  background: var(--accent-dark);
-  color: #fff;
-  border-color: var(--accent-dark);
-  transform: scale(1.05);
+  color: var(--accent-light);
+  border-color: var(--accent);
 }
 
 @media (max-width: 700px) {

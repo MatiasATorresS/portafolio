@@ -5,7 +5,7 @@ import "./ProjectCard.css";
 
 const CATEGORY_LABELS = { web: "Desarrollo web", data: "Datos & análisis", ai: "IA & visión" };
 
-export default function ProjectCard({ project, onSelect }) {
+export default function ProjectCard({ project, index, onSelect }) {
   const openDetail = () => onSelect(project);
 
   return (
@@ -33,7 +33,7 @@ export default function ProjectCard({ project, onSelect }) {
           />
         ) : (
           <span className="project-card__cover">
-            <span className="project-card__cover-index" aria-hidden="true">{String(project.id).padStart(2, "0")} /</span>
+            <span className="project-card__cover-index" aria-hidden="true">{String(index).padStart(2, "0")} /</span>
             <span className="project-card__cover-title">{project.coverLabel}</span>
             <span className="project-card__cover-detail">{project.coverDetail}</span>
           </span>
@@ -43,7 +43,7 @@ export default function ProjectCard({ project, onSelect }) {
 
       <div className="project-card__content">
         <div className="project-card__eyebrow">
-          <span>{CATEGORY_LABELS[project.category]}</span>
+          <span><span className="project-card__number">{String(index).padStart(2, "0")}</span> / {CATEGORY_LABELS[project.category]}</span>
           {project.featured && <span className="project-card__featured-badge">Destacado</span>}
         </div>
 

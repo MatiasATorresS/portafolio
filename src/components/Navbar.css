@@ -29,10 +29,10 @@
   cursor: pointer;
   padding: 0;
   font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 800;
+  font-size: 1.18rem;
+  font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: -0.5px;
+  letter-spacing: -0.04em;
   transition: opacity var(--transition);
 }
 .navbar__logo:hover {
@@ -57,22 +57,22 @@
   font-size: 0.88rem;
   font-weight: 500;
   padding: 8px 16px;
-  border-radius: var(--radius-sm);
+  border-bottom: 1px solid transparent;
   cursor: pointer;
   transition: color var(--transition), background var(--transition);
 }
 .navbar__link:hover {
   color: var(--text-primary);
-  background: var(--accent-subtle);
+  border-bottom-color: var(--border-strong);
 }
 
 .navbar__link--active {
   color: var(--accent-light);
-  background: var(--accent-glow);
+  border-bottom-color: var(--accent);
 }
 .navbar__link--active:hover {
   color: var(--accent-light);
-  background: var(--accent-glow);
+  border-bottom-color: var(--accent);
 }
 
 .navbar__cv-btn {

@@ -6,7 +6,7 @@ import "./Navbar.css";
 const links = [
   { id: "projects", label: "Proyectos" },
   { id: "about", label: "Sobre Mí" },
-  { id: "skills", label: "Skills" },
+  { id: "skills", label: "Habilidades" },
   { id: "contact", label: "Contacto" },
 ];
 
@@ -126,10 +126,8 @@ export default function Navbar() {
     <header>
       <nav className={`navbar ${scrolled || mobileOpen ? "navbar--scrolled" : ""}`} aria-label="Principal">
         <div className="navbar__inner container">
-          <button className="navbar__logo" onClick={handleHome}>
-            <span className="navbar__logo-accent">{"<"}</span>
-            MT
-            <span className="navbar__logo-accent">{" />"}</span>
+          <button className="navbar__logo" onClick={handleHome} aria-label="Matías Torres, volver al inicio">
+            Matías <span className="navbar__logo-accent">Torres.</span>
           </button>
 
           <ul className="navbar__links">

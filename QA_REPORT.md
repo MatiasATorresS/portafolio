@@ -1,5 +1,7 @@
 # Revisión del portafolio
 
+Diseño de archivo técnico (24 de septiembre de 2026): tipografía IBM Plex Sans/Mono, identidad con nombre propio en la navegación y navegación en español. La galería usa dos columnas editoriales con numeración, capturas sin marcos decorativos y un cierre horizontal para el último proyecto; las habilidades se presentan como listas con reglas finas. Se conserva la ficha interactiva y la opción de abrir demos aparte.
+
 Revisión de identidad visual (23 de septiembre de 2026): la portada sustituyó el monograma luminoso por una captura real de DevBoard, eliminó el degradado del nombre y el fondo cuadriculado. Los textos de portada, proyectos, biografía, habilidades y contacto describen trabajo y objetivos concretos en vez de fórmulas genéricas. En móvil se conserva una portada breve con dos acciones en una fila.
 
 Mejora visual posterior (23 de septiembre de 2026): «Sobre mí» presenta la biografía y la trayectoria en dos columnas en escritorio, con párrafos de ancho acotado; en móvil se apilan. «Habilidades» usa una cuadrícula equilibrada de dos por dos en escritorio y una columna en móvil.

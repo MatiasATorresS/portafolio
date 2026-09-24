@@ -36,7 +36,7 @@
 .hero__work-heading {
   padding: 12px 0;
   color: var(--accent-light);
-  font: 0.72rem/1.4 monospace;
+  font: 0.72rem/1.4 var(--font-mono);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -68,7 +68,7 @@
 }
 
 .hero__greeting {
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--accent-light);
@@ -80,7 +80,7 @@
 
 .hero__name {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.1;
   color: var(--text-primary);
   margin-bottom: 8px;

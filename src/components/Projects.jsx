@@ -67,8 +67,8 @@ export default function Projects() {
         {/* Projects Grid */}
         <motion.div layout className={`projects__grid ${activeCategory === "all" ? "projects__grid--all" : ""}`}>
           <AnimatePresence mode="popLayout">
-            {sortedProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} onSelect={setSelected} />
+            {sortedProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index + 1} onSelect={setSelected} />
             ))}
           </AnimatePresence>
         </motion.div>

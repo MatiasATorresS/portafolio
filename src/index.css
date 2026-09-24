@@ -19,13 +19,14 @@
   --border-strong: rgba(255, 255, 255, 0.16);
   
   --nav-height: 80px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
   
-  --font-display: 'Sora', 'Inter', system-ui, -apple-system, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
   
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-glow: 0 8px 24px rgba(0, 0, 0, 0.2);
@@ -84,8 +85,8 @@ ul {
   align-items: center;
   gap: 10px;
   color: var(--accent-light);
-  font-family: monospace;
-  font-size: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
   margin-bottom: 12px;
   letter-spacing: 1px;
 }
@@ -94,12 +95,12 @@ ul {
   content: "";
   width: 28px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-light));
+  background: var(--accent-light);
 }
 
 .section-title {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 40px;
   position: relative;
