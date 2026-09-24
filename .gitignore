@@ -16,6 +16,9 @@ dist-ssr
 .agents/
 skills-lock.json
 
+# Contexto local para agentes de IA (no se sube)
+AGENTS.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

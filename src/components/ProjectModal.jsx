@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink } from "lucide-react";
@@ -12,7 +12,44 @@ const CATEGORY_LABELS = {
 };
 
 const FOCUSABLE_SELECTOR =
-  'button:not([disabled]), a[href]:not([disabled]), iframe, [tabindex]:not([tabindex="-1"])';
+  'button:not([disabled]), a[href]:not([disabled]), iframe:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
+
+function ProjectPreview({ project }) {
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div className="modal__preview">
+      <div className="modal__preview-bar">
+        <span className="modal__preview-url">{project.demoUrl}</span>
+        <a
+          href={project.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="modal__preview-open"
+        >
+          Abrir demo aparte <ExternalLink size={14} />
+        </a>
+      </div>
+      <div className="modal__preview-frame">
+        {!loaded && (
+          <div className="modal__preview-loading" role="status">
+            <span className="modal__preview-spinner" aria-hidden="true" />
+            <span>Cargando demo…</span>
+          </div>
+        )}
+        <iframe
+          className="modal__iframe"
+          src={project.demoUrl}
+          title={`Vista previa en vivo de ${project.name}`}
+          loading="eager"
+          tabIndex={loaded ? 0 : -1}
+          onLoad={() => setLoaded(true)}
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+        />
+      </div>
+    </div>
+  );
+}
 
 export default function ProjectModal({ project, onClose }) {
   const modalRef = useRef(null);
@@ -52,7 +89,8 @@ export default function ProjectModal({ project, onClose }) {
     };
     document.addEventListener("keydown", handleKeydown);
 
-    closeRef.current?.focus();
+    modalRef.current.scrollTop = 0;
+    closeRef.current?.focus({ preventScroll: true });
 
     return () => {
       document.body.style.overflow = originalOverflow;
@@ -107,26 +145,7 @@ export default function ProjectModal({ project, onClose }) {
             </div>
 
             {project.demoUrl ? (
-              <div className="modal__preview">
-                <div className="modal__preview-bar">
-                  <span className="modal__preview-url">{project.demoUrl}</span>
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="modal__preview-open"
-                  >
-                    Abrir pestaña <ExternalLink size={14} />
-                  </a>
-                </div>
-                <iframe
-                  className="modal__iframe"
-                  src={project.demoUrl}
-                  title={`Vista previa en vivo de ${project.name}`}
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                />
-              </div>
+              <ProjectPreview key={project.id} project={project} />
             ) : (
               <div className="modal__preview modal__preview--empty">
                 <p>La demo en vivo está en camino. Por ahora, el código está disponible en GitHub.</p>
