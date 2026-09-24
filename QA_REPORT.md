@@ -1,5 +1,7 @@
 # Revisión del portafolio
 
+Revisión de identidad visual (23 de septiembre de 2026): la portada sustituyó el monograma luminoso por una captura real de DevBoard, eliminó el degradado del nombre y el fondo cuadriculado. Los textos de portada, proyectos, biografía, habilidades y contacto describen trabajo y objetivos concretos en vez de fórmulas genéricas. En móvil se conserva una portada breve con dos acciones en una fila.
+
 Mejora visual posterior (23 de septiembre de 2026): «Sobre mí» presenta la biografía y la trayectoria en dos columnas en escritorio, con párrafos de ancho acotado; en móvil se apilan. «Habilidades» usa una cuadrícula equilibrada de dos por dos en escritorio y una columna en móvil.
 
 Estado actual (23 de septiembre de 2026): el catálogo contiene 9 proyectos y 6 capturas. Las cifras de 10 proyectos y 7 capturas que aparecen abajo corresponden a comprobaciones anteriores a la eliminación de TODO. La ficha de proyecto ahora indica que la demo está cargando y mantiene visible la opción «Abrir demo aparte». Los sitios externos aún pueden impedir que su contenido se muestre incrustado; esa opción permite abrirlos directamente.

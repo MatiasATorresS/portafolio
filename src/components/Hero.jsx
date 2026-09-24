@@ -9,8 +9,6 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero">
-      <div className="hero__background"></div>
-
       <div className="hero__content container">
         <div className="hero__grid">
           <motion.div
@@ -18,15 +16,16 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="hero__text-wrapper">
-            <span className="hero__greeting">Hola, soy</span>
+            <span className="hero__greeting">Ingeniero civil informático · Chile</span>
             <h1 className="hero__name">
               Matías Torres <span className="hero__name-accent">Sandoval.</span>
             </h1>
-            <h2 className="hero__title">Construyo experiencias digitales.</h2>
+            <h2 className="hero__title">Software para problemas concretos.</h2>
 
             <p className="hero__description">
-              Ingeniero Civil Informático especializado en desarrollo de
-              software, análisis de datos y eficiencia tecnológica.
+              Desarrollo aplicaciones para organizar proyectos, gestionar
+              operaciones y entender datos. Aquí puedes ver las demos, el
+              código y el problema que aborda cada proyecto.
             </p>
 
             <div className="hero__actions">
@@ -38,28 +37,33 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--secondary">
-                Curriculum Vitae <Download size={18} />
+                Ver CV <Download size={18} />
               </a>
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="hero__avatar">
-            <picture>
-              <source srcSet={import.meta.env.BASE_URL + "profile_avatar.webp"} type="image/webp" />
-              <img
-                src={import.meta.env.BASE_URL + "profile_avatar.jpg"}
-                alt="Matías Torres Sandoval"
-                className="hero__avatar-img"
-                width="280"
-                height="280"
-                loading="eager"
-              />
-            </picture>
-          </motion.div>
+          <motion.figure
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+            className="hero__work">
+            <div className="hero__work-heading">
+              <span>Trabajo seleccionado</span>
+              <span>Desarrollo web</span>
+            </div>
+            <img
+              src={import.meta.env.BASE_URL + "projects/devboard.png"}
+              alt="Panel de DevBoard con métricas y proyectos"
+              className="hero__work-image"
+              width="1280"
+              height="800"
+              loading="eager"
+            />
+            <figcaption className="hero__work-caption">
+              <strong>DevBoard</strong>
+              <span>Proyectos, tareas y bugs en un solo lugar.</span>
+            </figcaption>
+          </motion.figure>
         </div>
       </div>
     </section>

@@ -37,10 +37,10 @@ export default function Projects() {
       <div className="container">
         <span className="section-label">01. Portafolio</span>
         <div className="projects__intro">
-          <h2 className="section-title">Ideas que se convierten<br />en proyectos.</h2>
+          <h2 className="section-title">Código, contexto<br />y proyectos.</h2>
           <p className="section-subtitle">
-            Desarrollo web, datos e inteligencia artificial.<br />
-            Explora cómo trabajo, el código y las demos.
+            Cada ficha muestra el problema, la solución y, cuando existe,
+            una demo para probarla.
           </p>
         </div>
 

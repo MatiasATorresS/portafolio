@@ -44,7 +44,7 @@ export default function Skills() {
     <section className="section skills glass" id="skills">
       <div className="container">
         <span className="section-label">03. Habilidades</span>
-        <h2 className="section-title">Mi Stack Tecnológico</h2>
+        <h2 className="section-title">Tecnologías con las que trabajo</h2>
         
         <div className="skills__grid">
           {skillCategories.map((category, idx) => (

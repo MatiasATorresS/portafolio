@@ -52,9 +52,8 @@ export default function Contact() {
           </h2>
 
           <p className="contact__text">
-            Estoy abierto a nuevas oportunidades donde pueda aportar valor y
-            seguir aprendiendo. Ya sea para un proyecto interesante o una oferta
-            laboral, mi bandeja de entrada siempre está abierta.
+            Busco oportunidades en desarrollo, infraestructura o análisis de
+            datos. Si mi trabajo encaja con lo que necesitas, escríbeme.
           </p>
 
           <div className="contact__actions">

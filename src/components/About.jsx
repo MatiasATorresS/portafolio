@@ -29,7 +29,7 @@ export default function About() {
     <section className="section about" id="about">
       <div className="container">
         <span className="section-label">02. Sobre Mí</span>
-        <h2 className="section-title">Ingeniero & Desarrollador</h2>
+        <h2 className="section-title">De soporte TI a software y datos</h2>
 
         <div className="about__content">
           <motion.div
@@ -41,14 +41,13 @@ export default function About() {
             <p>
               ¡Hola! Soy Matías Andrés Torres Sandoval, Ingeniero Civil
               Informático egresado de la Universidad Andrés Bello. Tengo
-              experiencia en soporte TI corporativo, desarrollo de software y
-              análisis de datos.
+              experiencia en soporte TI, desarrollo web y análisis de datos.
             </p>
             <p>
-              Me especializo en crear soluciones tecnológicas eficientes, desde
-              interfaces de usuario rápidas y hermosas hasta análisis de grandes
-              volúmenes de datos. Mi enfoque siempre está en la resolución de
-              problemas y la eficiencia operativa.
+              En mis proyectos he construido tableros para seguir tareas e
+              incidencias, sistemas de inventario y herramientas para explorar
+              información. Me interesa que lo complejo termine en pantallas
+              claras y flujos fáciles de usar.
             </p>
             <p>
               He trabajado en entornos gubernamentales gestionando incidencias y
