@@ -1,5 +1,13 @@
 .about__content {
-  margin-top: 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: start;
+  gap: clamp(40px, 6vw, 88px);
+  margin-top: 32px;
+}
+
+.about__text {
+  max-width: 62ch;
 }
 
 .about__text p {
@@ -36,11 +44,9 @@
   border-color: var(--accent-dark);
 }
 
-/* ── Timeline / Trayectoria ── */
 .about__timeline {
-  margin-top: 64px;
-  padding-top: 48px;
-  border-top: 1px solid var(--border);
+  padding-left: 28px;
+  border-left: 1px solid var(--border-strong);
 }
 
 .about__timeline-heading {
@@ -53,14 +59,13 @@
 
 .about__timeline-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
+  gap: 16px;
 }
 
 .about__timeline-card {
   display: flex;
-  gap: 18px;
-  padding: 24px;
+  gap: 16px;
+  padding: 20px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -121,7 +126,15 @@
 }
 
 @media (max-width: 768px) {
-  .about__timeline-grid {
+  .about__content {
     grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .about__timeline {
+    padding-left: 0;
+    padding-top: 32px;
+    border-left: 0;
+    border-top: 1px solid var(--border-strong);
   }
 }

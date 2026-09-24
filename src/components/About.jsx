@@ -81,37 +81,35 @@ export default function About() {
               </a>
             </div>
           </motion.div>
+          <motion.div
+            className="about__timeline"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.1 }}>
+            <h3 className="about__timeline-heading">Trayectoria & Formación</h3>
+            <div className="about__timeline-grid">
+              {TIMELINE.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="about__timeline-card">
+                    <div className="about__timeline-icon">
+                      <Icon size={20} />
+                    </div>
+                    <div className="about__timeline-info">
+                      <span className="about__timeline-date">{item.date}</span>
+                      <h4 className="about__timeline-title">{item.title}</h4>
+                      <span className="about__timeline-subtitle">
+                        {item.subtitle}
+                      </span>
+                      <p className="about__timeline-desc">{item.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
         </div>
-
-        {/* Timeline / Trayectoria */}
-        <motion.div
-          className="about__timeline"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, delay: 0.1 }}>
-          <h3 className="about__timeline-heading">Trayectoria & Formación</h3>
-          <div className="about__timeline-grid">
-            {TIMELINE.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div key={idx} className="about__timeline-card">
-                  <div className="about__timeline-icon">
-                    <Icon size={20} />
-                  </div>
-                  <div className="about__timeline-info">
-                    <span className="about__timeline-date">{item.date}</span>
-                    <h4 className="about__timeline-title">{item.title}</h4>
-                    <span className="about__timeline-subtitle">
-                      {item.subtitle}
-                    </span>
-                    <p className="about__timeline-desc">{item.description}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
