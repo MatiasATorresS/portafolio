@@ -9,18 +9,36 @@ const TIMELINE = [
     icon: GraduationCap,
     title: 'Ingeniería Civil Informática',
     subtitle: 'Universidad Andrés Bello (UNAB)',
-    date: 'Egresado',
+    date: 'Titulado · 2019–2024',
     description:
-      'Licenciatura en Ciencias de la Ingeniería. Especialización en desarrollo de software, arquitectura de sistemas y análisis de datos.',
+      'Ingeniero Civil Informático titulado por la Universidad Andrés Bello.',
   },
   {
     type: 'experience',
     icon: Briefcase,
-    title: 'Soporte TI & Gestión Tecnológica',
-    subtitle: 'Entornos Corporativos & Públicos',
-    date: 'Experiencia Profesional',
+    title: 'Técnico en Soporte Informático',
+    subtitle: 'ACTIS · Servicio para ProChile',
+    date: 'Febrero 2026',
     description:
-      'Resolución de incidencias complejas, administración de infraestructura, optimización de flujos de trabajo y desarrollo de soluciones técnicas internas.',
+      'Experiencia laboral en soporte TI para usuarios y resolución de incidencias.',
+  },
+  {
+    type: 'experience',
+    icon: Briefcase,
+    title: 'Práctica profesional',
+    subtitle: 'ProChile',
+    date: 'Enero–marzo 2024',
+    description:
+      'Apoyo al teletrabajo de más de 70 usuarios y digitalización de más de 70 formularios.',
+  },
+  {
+    type: 'experience',
+    icon: Briefcase,
+    title: 'Práctica',
+    subtitle: 'ProChile',
+    date: 'Febrero–noviembre 2022',
+    description:
+      'Apoyo de soporte TI asociado a más de 40 equipos.',
   },
 ];
 
@@ -40,19 +58,24 @@ export default function About() {
             transition={{ duration: 0.6 }}>
             <p>
               ¡Hola! Soy Matías Andrés Torres Sandoval, Ingeniero Civil
-              Informático egresado de la Universidad Andrés Bello. Tengo
-              experiencia en soporte TI, desarrollo web y análisis de datos.
+              Informático titulado por la Universidad Andrés Bello. Busco mi
+              primera oportunidad profesional en desarrollo de software o
+              análisis de datos en Santiago de Chile.
             </p>
             <p>
-              En mis proyectos he construido tableros para seguir tareas e
-              incidencias, sistemas de inventario y herramientas para explorar
-              información. Me interesa que lo complejo termine en pantallas
-              claras y flujos fáciles de usar.
+              He trabajado en soporte TI en ACTIS para ProChile y realicé dos
+              prácticas en ProChile. En una de ellas apoyé el teletrabajo de más
+              de 70 usuarios y digitalicé más de 70 formularios.
             </p>
             <p>
-              He trabajado en entornos gubernamentales gestionando incidencias y
-              optimizando procesos. Actualmente busco oportunidades en áreas de
-              desarrollo, infraestructura o análisis de datos.
+              Por cuenta propia desarrollo proyectos full stack desplegados e
+              integro APIs de modelos de lenguaje. Puedes revisar esos proyectos
+              en la sección de proyectos; son trabajos personales y no
+              experiencia laboral.
+            </p>
+            <p>
+              Me interesa aportar en equipos de desarrollo de software y análisis
+              de datos. Actualmente busco oportunidades en esas áreas.
             </p>
 
             <div className="about__socials">
