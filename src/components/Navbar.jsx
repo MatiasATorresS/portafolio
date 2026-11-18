@@ -1,146 +1,73 @@
-import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { BriefcaseBusiness, CodeXml, House, Mail, UserRound } from "lucide-react";
 import "./Navbar.css";
 
 const links = [
-  { id: "projects", label: "Proyectos" },
-  { id: "about", label: "Sobre Mí" },
-  { id: "skills", label: "Skills" },
-  { id: "contact", label: "Contacto" },
+  { id: "projects", label: "Proyectos", shortLabel: "work", icon: BriefcaseBusiness },
+  { id: "about", label: "Sobre mí", shortLabel: "about", icon: UserRound },
+  { id: "skills", label: "Habilidades", shortLabel: "skills", icon: CodeXml },
+  { id: "contact", label: "Contacto", shortLabel: "contacto", icon: Mail },
 ];
 
 const SECTION_IDS = ["hero", "projects", "about", "skills", "contact"];
 
-const FOCUSABLE_SELECTOR =
-  'button:not([disabled]), a[href]:not([disabled]), [tabindex]:not([tabindex="-1"])';
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
-  const menuRef = useRef(null);
-  const toggleRef = useRef(null);
-  const previousFocus = useRef(null);
+  const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ScrollSpy via IntersectionObserver
   useEffect(() => {
     const sections = SECTION_IDS
       .map((id) => document.getElementById(id))
       .filter(Boolean);
 
-    if (sections.length === 0) return;
+    if (!sections.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visible.length > 0) {
-          setActiveSection(visible[0].target.id);
-        }
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => Math.abs(a.boundingClientRect.top - 72) - Math.abs(b.boundingClientRect.top - 72));
+        if (visible.length) setActiveSection(visible[0].target.id);
       },
-      {
-        threshold: [0.15, 0.3, 0.5],
-        rootMargin: "-80px 0px -35% 0px",
-      }
+      { threshold: 0, rootMargin: "-70px 0px -55% 0px" }
     );
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
 
-  // Cerrar menú al volver a tamaño desktop
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 769px)");
-    const handleChange = (e) => {
-      if (e.matches) setMobileOpen(false);
-    };
-    mq.addEventListener("change", handleChange);
-    return () => mq.removeEventListener("change", handleChange);
-  }, []);
-
-  // Bloquear scroll, cerrar con Escape y gestionar foco mientras el menú está abierto
-  useEffect(() => {
-    if (!mobileOpen) return;
-
-    previousFocus.current = document.activeElement;
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const handleKeydown = (e) => {
-      if (e.key === "Escape") {
-        setMobileOpen(false);
-        return;
-      }
-      if (e.key === "Tab") {
-        const focusables = [
-          toggleRef.current,
-          ...(menuRef.current?.querySelectorAll(FOCUSABLE_SELECTOR) ?? []),
-        ].filter(Boolean);
-        if (focusables.length === 0) return;
-        const currentIndex = focusables.indexOf(document.activeElement);
-        const nextIndex = e.shiftKey
-          ? (currentIndex <= 0 ? focusables.length - 1 : currentIndex - 1)
-          : (currentIndex + 1) % focusables.length;
-        e.preventDefault();
-        focusables[nextIndex].focus();
-      }
-    };
-    document.addEventListener("keydown", handleKeydown);
-
-    const firstFocusable = menuRef.current?.querySelector("button, a");
-    firstFocusable?.focus();
-
-    return () => {
-      document.body.style.overflow = originalOverflow;
-      document.removeEventListener("keydown", handleKeydown);
-      if (previousFocus.current instanceof HTMLElement) {
-        previousFocus.current.focus();
-      }
-    };
-  }, [mobileOpen]);
-
-  const closeMenu = () => setMobileOpen(false);
-
-  const handleNav = (id) => {
-    closeMenu();
-    document.body.style.overflow = "";
+  const goTo = (id) => {
+    setActiveSection(id);
     document.getElementById(id)?.scrollIntoView({ behavior: "auto" });
   };
-
-  const handleHome = () => {
-    closeMenu();
-    document.body.style.overflow = "";
+  const goHome = () => {
+    setActiveSection("hero");
     window.scrollTo({ top: 0, behavior: "auto" });
   };
 
   return (
-    <header>
-      <nav className={`navbar ${scrolled || mobileOpen ? "navbar--scrolled" : ""}`} aria-label="Principal">
+    <header className="site-header">
+      <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`} aria-label="Principal">
         <div className="navbar__inner container">
-          <button className="navbar__logo" onClick={handleHome}>
-            <span className="navbar__logo-accent">{"<"}</span>
-            MT
-            <span className="navbar__logo-accent">{" />"}</span>
+          <button className="navbar__logo" onClick={goHome} aria-label="Matías Torres, volver al inicio">
+            Matías<span className="navbar__logo-accent">.dev</span>
           </button>
 
           <ul className="navbar__links">
-            {links.map((l) => (
-              <li key={l.id}>
+            {links.map((link) => (
+              <li key={link.id}>
                 <button
-                  className={`navbar__link ${activeSection === l.id ? "navbar__link--active" : ""}`}
-                  onClick={() => document.getElementById(l.id)?.scrollIntoView({ behavior: "auto" })}
-                  aria-current={activeSection === l.id ? "true" : undefined}
+                  className={`navbar__link ${activeSection === link.id ? "navbar__link--active" : ""}`}
+                  onClick={() => goTo(link.id)}
+                  aria-current={activeSection === link.id ? "location" : undefined}
                 >
-                  {l.label}
+                  {link.label}
                 </button>
               </li>
             ))}
@@ -155,62 +82,32 @@ export default function Navbar() {
               </a>
             </li>
           </ul>
-
-          <button
-            ref={toggleRef}
-            className="navbar__toggle"
-            onClick={() => setMobileOpen((open) => !open)}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
         </div>
       </nav>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            id="mobile-menu"
-            ref={menuRef}
-            className="navbar__mobile-menu"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+      <nav className="mobile-dock" aria-label="Navegación móvil">
+        <button
+          className={`mobile-dock__item ${activeSection === "hero" ? "mobile-dock__item--active" : ""}`}
+          onClick={goHome}
+          aria-label="Inicio"
+          aria-current={activeSection === "hero" ? "location" : undefined}
+        >
+          <House size={19} aria-hidden="true" />
+          <span>Inicio</span>
+        </button>
+        {links.map(({ id, shortLabel, icon: Icon }) => (
+          <button
+            key={id}
+            className={`mobile-dock__item ${activeSection === id ? "mobile-dock__item--active" : ""}`}
+            onClick={() => goTo(id)}
+            aria-label={shortLabel}
+            aria-current={activeSection === id ? "location" : undefined}
           >
-            <ul className="navbar__mobile-links">
-              {links.map((l, idx) => (
-                <motion.li
-                  key={l.id}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.05 * idx }}
-                >
-                  <button
-                    className={`navbar__mobile-link ${activeSection === l.id ? "navbar__mobile-link--active" : ""}`}
-                    onClick={() => handleNav(l.id)}
-                    aria-current={activeSection === l.id ? "true" : undefined}
-                  >
-                    {l.label}
-                  </button>
-                </motion.li>
-              ))}
-              <li>
-                <a
-                  href={import.meta.env.BASE_URL + "Matias_Torres_Sandoval_CV.pdf"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="navbar__cv-btn navbar__mobile-cv"
-                >
-                  Curriculum Vitae
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <Icon size={19} aria-hidden="true" />
+            <span>{shortLabel}</span>
+          </button>
+        ))}
+      </nav>
     </header>
   );
 }

@@ -1,5 +1,7 @@
 # Revisión del portafolio
 
+Prototipo responsive inspirado en la vista móvil de angiematiz.tech (18 de noviembre de 2026): se conservan el fondo nocturno, la tipografía pixel para identidad, los detalles de terminal y una navegación inferior en móvil. En escritorio se usa una ventana de portafolio centrada con navegación superior, evitando el IDE completo de la referencia. Se mantienen las secciones, proyectos, filtros y demos. Validar el prototipo antes de seleccionar o publicar un diseño.
+
 Revisión de identidad visual (23 de septiembre de 2026): la portada sustituyó el monograma luminoso por una captura real de DevBoard, eliminó el degradado del nombre y el fondo cuadriculado. Los textos de portada, proyectos, biografía, habilidades y contacto describen trabajo y objetivos concretos en vez de fórmulas genéricas. En móvil se conserva una portada breve con dos acciones en una fila.
 
 Mejora visual posterior (23 de septiembre de 2026): «Sobre mí» presenta la biografía y la trayectoria en dos columnas en escritorio, con párrafos de ancho acotado; en móvil se apilan. «Habilidades» usa una cuadrícula equilibrada de dos por dos en escritorio y una columna en móvil.

@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.vite-*/
 
 # Archivos locales del sistema de skills
 .agents/
