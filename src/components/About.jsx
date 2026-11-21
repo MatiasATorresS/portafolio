@@ -11,7 +11,7 @@ const TIMELINE = [
     subtitle: 'Universidad Andrés Bello (UNAB)',
     date: 'Titulado · 2019–2024',
     description:
-      'Ingeniero Civil Informático titulado por la Universidad Andrés Bello.',
+      'Formación en programación, algoritmos, bases de datos, ingeniería de software, desarrollo web y móvil, inteligencia artificial, machine learning y ciencia de datos.',
   },
   {
     type: 'experience',
@@ -40,6 +40,14 @@ const TIMELINE = [
     description:
       'Apoyo de soporte TI asociado a más de 40 equipos.',
   },
+];
+
+const CERTIFICATIONS = [
+  { name: 'Machine Learning con Python', issuer: 'University of Michigan · 2025' },
+  { name: 'SQL para Ciencia de Datos', issuer: 'IBM · 2025' },
+  { name: 'Visualización de Datos con Python', issuer: 'IBM · 2025' },
+  { name: 'Power BI', issuer: 'Santander · 2025' },
+  { name: 'Ciencia de Datos e Inteligencia Artificial', issuer: 'IBM · 2023' },
 ];
 
 export default function About() {
@@ -75,7 +83,8 @@ export default function About() {
             </p>
             <p>
               Me interesa aportar en equipos de desarrollo de software y análisis
-              de datos. Actualmente busco oportunidades en esas áreas.
+              de datos, BI e IA aplicada. Actualmente busco oportunidades junior
+              o trainee en esas áreas.
             </p>
 
             <div className="about__socials">
@@ -131,6 +140,18 @@ export default function About() {
               })}
             </div>
           </motion.div>
+        </div>
+
+        <div className="about__certifications">
+          <h3 className="about__certifications-heading">Certificaciones</h3>
+          <ul className="about__certifications-list">
+            {CERTIFICATIONS.map((certification) => (
+              <li className="about__certification" key={certification.name}>
+                <span>{certification.name}</span>
+                <small>{certification.issuer}</small>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

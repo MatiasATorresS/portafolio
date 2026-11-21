@@ -1,6 +1,37 @@
+Catálogo actualizado (20 de noviembre de 2026): IncidentHub y StockFlow se retiraron del portafolio. Quedan 7 proyectos: 4 web, 1 de datos y 2 de IA. Se retiró la captura de StockFlow y se actualizó README; los nombres que siguen en este informe corresponden a revisiones históricas. Los repositorios remotos no se borraron.
+
+Actualización de perfil profesional (20 de noviembre de 2026): el sitio ahora presenta a Matías como titulado UNAB (2019–2024), describe el trabajo de ACTIS/ProChile con los datos de escala disponibles, añade Santiago a la ubicación y precisa la búsqueda junior/trainee en desarrollo, datos, BI e IA aplicada, reemplaza habilidades académicas no respaldadas como stack práctico y agrega las cinco certificaciones compartidas. Se actualizaron también descripción SEO, Open Graph, Twitter y JSON-LD. El catálogo quedó en siete proyectos al retirar IncidentHub y StockFlow; no se agregó TODO. Los proyectos académicos y la automatización de búsqueda laboral quedan fuera del sitio porque el contexto no incluye enlaces ni descripciones suficientes para fichas verificables.
+
+Ficha de proyecto en móvil (18 de noviembre de 2026): modal a pantalla completa con cabecera pegajosa, título largo que puede ajustarse, cierre visible durante el desplazamiento y acciones en botones de ancho completo. Se conserva la demo incrustada; lint, build y revisión visual a 360 px verificados.
+
+Corrección de navegación móvil (18 de noviembre de 2026): el indicador de sección ahora usa una zona de observación proporcional a la altura de pantalla; al entrar en Proyectos, el dock debe marcar Proyectos y no Inicio. Validación: lint y build correctos; no se completó una interacción visual en emulador porque la herramienta de navegador no pudo determinar la URL abierta con suficiente certeza.
+
+## Plan de mejoras implementado (18 de noviembre de 2026)
+
+1. Proyectos: capturas a sangre con proporción panorámica y jerarquía más clara para categoría, título, descripción, tecnologías y acciones.
+2. Dock móvil: se oculta al bajar, aparece al subir o volver cerca del inicio y se muestra al recibir foco de teclado.
+3. Portada móvil: reducidos los espacios verticales y el tamaño de algunos textos para acercar Proyectos sin quitar la muestra destacada.
+4. Sistema visual: centralizados en variables los colores recurrentes de superficies, acento y estado disponible; se conserva el soporte global para foco visible y movimiento reducido.
+5. Navegación intermedia: enlaces compactos entre 769 y 960 px para conservar el menú horizontal con espacio suficiente.
+
+Validación de cada paso: oxlint, build de producción mediante la API de Vite y `git diff --check` correctos. Inspección visual final disponible en el navegador local; falta una comprobación visual manual a varios anchos móviles.
+Alineación de encabezados (18 de noviembre de 2026): la etiqueta 04. Contacto se alinea al inicio del contenido, como las etiquetas numeradas anteriores.
+
+Navegación de escritorio (18 de noviembre de 2026): aumentada y uniformada la separación entre enlaces y CV para facilitar el escaneo visual.
+
+Espaciado móvil de Habilidades (18 de noviembre de 2026): añadido margen interior a títulos y etiquetas de las tarjetas para que no queden pegados al borde.
+
+Ajuste móvil (18 de noviembre de 2026): ocultado el botón flotante de volver arriba en pantallas pequeñas, porque el dock ya ofrece Inicio y el botón tapaba las tarjetas al desplazarse.
+
+Navegación móvil (18 de noviembre de 2026): etiquetas del dock traducidas a español (Proyectos, Sobre mí, Habilidades y Contacto); etiquetas accesibles actualizadas junto con el texto visible.
+
+Ajuste visual (18 de noviembre de 2026): el prototipo terminal usa ahora acentos azules y celestes en botones, títulos, navegación, bordes y brillos. La estructura y el original publicado se conservan.
+
 # Revisión del portafolio
 
 Diseño de archivo técnico (24 de septiembre de 2026): tipografía IBM Plex Sans/Mono, identidad con nombre propio en la navegación y navegación en español. La galería usa dos columnas editoriales con numeración, capturas sin marcos decorativos y un cierre horizontal para el último proyecto; las habilidades se presentan como listas con reglas finas. Se conserva la ficha interactiva y la opción de abrir demos aparte.
+
+Prototipo responsive inspirado en la vista móvil de angiematiz.tech (18 de noviembre de 2026): se conservan el fondo nocturno, la tipografía pixel para identidad, los detalles de terminal y una navegación inferior en móvil. En escritorio se usa una ventana de portafolio centrada con navegación superior, evitando el IDE completo de la referencia. Se mantienen las secciones, proyectos, filtros y demos. Validar el prototipo antes de seleccionar o publicar un diseño.
 
 Revisión de identidad visual (23 de septiembre de 2026): la portada sustituyó el monograma luminoso por una captura real de DevBoard, eliminó el degradado del nombre y el fondo cuadriculado. Los textos de portada, proyectos, biografía, habilidades y contacto describen trabajo y objetivos concretos en vez de fórmulas genéricas. En móvil se conserva una portada breve con dos acciones en una fila.
 

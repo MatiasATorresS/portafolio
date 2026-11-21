@@ -43,11 +43,10 @@ pnpm lint       # linter
 
 ## Los proyectos
 
-Aparecen 9, entre ellos:
+El portafolio incluye 7 proyectos, entre ellos:
 
 - **DevBoard** — un dashboard para desarrolladores.
 - **KanbanFlow** — kanban estilo Trello/Linear con drag & drop.
-- **IncidentHub** — gestión de incidencias TI, hecho con React y Recharts.
 - **Análisis de Siniestros Chile** — análisis de datos públicos de CONASET con Python.
 - **Scuba Cat** — visión por computador con MediaPipe y OpenCV.
 

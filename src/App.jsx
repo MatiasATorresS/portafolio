@@ -13,15 +13,22 @@ function App() {
       <a href="#main" className="skip-link">
         Saltar al contenido
       </a>
-      <Navbar />
-      <main id="main">
-        <Hero />
-        <Projects />
-        <About />
-        <Skills />
-        <Contact />
-      </main>
-      <ScrollToTop />
+      <div className="portfolio-window">
+        <div className="portfolio-window__bar" aria-label="Ventana del portafolio">
+          <span className="portfolio-window__lights" aria-hidden="true"><i /><i /><i /></span>
+          <span className="portfolio-window__path">matias@portfolio: ~</span>
+          <span className="portfolio-window__status"><i /> disponible para proyectos</span>
+        </div>
+        <Navbar />
+        <main id="main">
+          <Hero />
+          <Projects />
+          <About />
+          <Skills />
+          <Contact />
+        </main>
+        <ScrollToTop />
+      </div>
     </MotionConfig>
   );
 }
