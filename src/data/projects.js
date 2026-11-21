@@ -66,22 +66,6 @@ export const projects = [
     category: "web",
   },
   {
-    id: 4,
-    name: "StockFlow",
-    summary: "Control de inventario con trazabilidad de productos, proveedores y movimientos.",
-    image: "projects/stockflow.png",
-    description:
-      "Sistema de gestión de inventario: control de productos, proveedores, entradas y salidas de stock con dashboard de métricas e historial de movimientos.",
-    problem:
-      "Los inventarios se controlaban en planillas, sin trazabilidad de las entradas y salidas de stock.",
-    solution:
-      "Desarrollé un sistema con control de productos y proveedores, historial de movimientos y dashboard de métricas para auditar cada cambio.",
-    tags: ["HTML", "CSS", "JavaScript", "Chart.js"],
-    github: "https://github.com/MatiasATorresS/stockflow",
-    demoUrl: "https://matiasatorress.github.io/stockflow/",
-    category: "web",
-  },
-  {
     id: 5,
     name: "AutoCare",
     summary: "Vehículos, reparaciones y órdenes de trabajo para la gestión de un taller.",
@@ -95,22 +79,6 @@ export const projects = [
     tags: ["HTML", "CSS", "JavaScript", "Chart.js"],
     github: "https://github.com/MatiasATorresS/autocare",
     demoUrl: "https://matiasatorress.github.io/autocare/",
-    category: "web",
-  },
-  {
-    id: 6,
-    name: "IncidentHub",
-    summary: "Tickets de soporte con prioridades, seguimiento de SLA y métricas del equipo.",
-    coverLabel: "Soporte con trazabilidad",
-    coverDetail: "Tickets · SLA · Productividad",
-    description:
-      "Sistema de gestión de incidencias TI: tickets con estados, prioridades, asignación de técnicos, SLA, gráficos de productividad y timeline de actividad.",
-    problem:
-      "La gestión de incidencias TI carecía de control de SLA y trazabilidad sobre la productividad de los técnicos.",
-    solution:
-      "Desarrollé en React un sistema de tickets con estados, prioridades y gráficos de productividad, más un timeline de actividad completo.",
-    tags: ["React", "Recharts", "Lucide Icons"],
-    github: "https://github.com/MatiasATorresS/IncidentHub",
     category: "web",
   },
   {

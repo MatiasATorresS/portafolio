@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BriefcaseBusiness, CodeXml, House, Mail, UserRound } from "lucide-react";
 import "./Navbar.css";
 
 const links = [
-  { id: "projects", label: "Proyectos", shortLabel: "work", icon: BriefcaseBusiness },
-  { id: "about", label: "Sobre mí", shortLabel: "about", icon: UserRound },
-  { id: "skills", label: "Habilidades", shortLabel: "skills", icon: CodeXml },
-  { id: "contact", label: "Contacto", shortLabel: "contacto", icon: Mail },
+  { id: "projects", label: "Proyectos", shortLabel: "Proyectos", icon: BriefcaseBusiness },
+  { id: "about", label: "Sobre mí", shortLabel: "Sobre mí", icon: UserRound },
+  { id: "skills", label: "Habilidades", shortLabel: "Habilidades", icon: CodeXml },
+  { id: "contact", label: "Contacto", shortLabel: "Contacto", icon: Mail },
 ];
 
 const SECTION_IDS = ["hero", "projects", "about", "skills", "contact"];
@@ -14,11 +14,37 @@ const SECTION_IDS = ["hero", "projects", "about", "skills", "contact"];
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const [dockHidden, setDockHidden] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia("(max-width: 768px)").matches);
+  const dockRef = useRef(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const updateViewportMode = () => setIsMobile(mediaQuery.matches);
+    mediaQuery.addEventListener("change", updateViewportMode);
+    return () => mediaQuery.removeEventListener("change", updateViewportMode);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    let previousY = window.scrollY;
+    const handleDockScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY < 80 || currentY < previousY - 2) {
+        setDockHidden(false);
+      } else if (currentY > 120 && currentY > previousY + 2 && !dockRef.current?.contains(document.activeElement)) {
+        setDockHidden(true);
+      }
+      previousY = currentY;
+    };
+
+    window.addEventListener("scroll", handleDockScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleDockScroll);
   }, []);
 
   useEffect(() => {
@@ -30,17 +56,21 @@ export default function Navbar() {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        const activeLine = isMobile ? window.innerHeight * 0.18 : 72;
         const visible = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => Math.abs(a.boundingClientRect.top - 72) - Math.abs(b.boundingClientRect.top - 72));
+          .sort((a, b) => Math.abs(a.boundingClientRect.top - activeLine) - Math.abs(b.boundingClientRect.top - activeLine));
         if (visible.length) setActiveSection(visible[0].target.id);
       },
-      { threshold: 0, rootMargin: "-70px 0px -55% 0px" }
+      {
+        threshold: 0,
+        rootMargin: isMobile ? "-18% 0px -65% 0px" : "-70px 0px -55% 0px",
+      }
     );
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [isMobile]);
 
   const goTo = (id) => {
     setActiveSection(id);
@@ -85,7 +115,12 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <nav className="mobile-dock" aria-label="Navegación móvil">
+      <nav
+        ref={dockRef}
+        className={`mobile-dock ${dockHidden ? "mobile-dock--hidden" : ""}`}
+        aria-label="Navegación móvil"
+        onFocusCapture={() => setDockHidden(false)}
+      >
         <button
           className={`mobile-dock__item ${activeSection === "hero" ? "mobile-dock__item--active" : ""}`}
           onClick={goHome}

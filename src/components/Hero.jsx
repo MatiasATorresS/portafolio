@@ -16,7 +16,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="hero__text-wrapper">
-            <span className="hero__greeting">Ingeniero civil informático · Chile</span>
+            <span className="hero__greeting">Ingeniero civil informático · Santiago, Chile</span>
             <h1 className="hero__name">
               Matías Torres <span className="hero__name-accent">Sandoval.</span>
             </h1>

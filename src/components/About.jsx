@@ -9,19 +9,27 @@ const TIMELINE = [
     icon: GraduationCap,
     title: 'Ingeniería Civil Informática',
     subtitle: 'Universidad Andrés Bello (UNAB)',
-    date: 'Egresado',
+    date: 'Titulado · 2019–2024',
     description:
-      'Licenciatura en Ciencias de la Ingeniería. Especialización en desarrollo de software, arquitectura de sistemas y análisis de datos.',
+      'Formación en programación, algoritmos, bases de datos, ingeniería de software, desarrollo web y móvil, inteligencia artificial, machine learning y ciencia de datos.',
   },
   {
     type: 'experience',
     icon: Briefcase,
-    title: 'Soporte TI & Gestión Tecnológica',
-    subtitle: 'Entornos Corporativos & Públicos',
-    date: 'Experiencia Profesional',
+    title: 'Soporte TI · ACTIS / ProChile',
+    subtitle: 'Prácticas profesionales en ProChile · 2022 y 2024',
+    date: 'Febrero de 2026 · 1 mes',
     description:
-      'Resolución de incidencias complejas, administración de infraestructura, optimización de flujos de trabajo y desarrollo de soluciones técnicas internas.',
+      'Participé en la implementación de teletrabajo para más de 70 usuarios y en la digitalización de más de 70 formularios administrativos.',
   },
+];
+
+const CERTIFICATIONS = [
+  { name: 'Machine Learning con Python', issuer: 'University of Michigan · 2025' },
+  { name: 'SQL para Ciencia de Datos', issuer: 'IBM · 2025' },
+  { name: 'Visualización de Datos con Python', issuer: 'IBM · 2025' },
+  { name: 'Power BI', issuer: 'Santander · 2025' },
+  { name: 'Ciencia de Datos e Inteligencia Artificial', issuer: 'IBM · 2023' },
 ];
 
 export default function About() {
@@ -39,20 +47,20 @@ export default function About() {
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6 }}>
             <p>
-              ¡Hola! Soy Matías Andrés Torres Sandoval, Ingeniero Civil
-              Informático egresado de la Universidad Andrés Bello. Tengo
-              experiencia en soporte TI, desarrollo web y análisis de datos.
+              Soy Matías Andrés Torres Sandoval, Ingeniero Civil Informático
+              titulado por la Universidad Andrés Bello. Busco mi primera
+              oportunidad profesional junior o trainee en desarrollo de
+              software, análisis de datos, BI o IA aplicada.
             </p>
             <p>
-              En mis proyectos he construido tableros para seguir tareas e
-              incidencias, sistemas de inventario y herramientas para explorar
-              información. Me interesa que lo complejo termine en pantallas
-              claras y flujos fáciles de usar.
+              He creado proyectos de gestión, aplicaciones full-stack y
+              análisis de datos. En AprendizajeIngles trabajé con React,
+              Node.js, Express, MySQL/TiDB y OpenRouter. Me interesa convertir
+              problemas concretos en herramientas claras y fáciles de usar.
             </p>
             <p>
-              He trabajado en entornos gubernamentales gestionando incidencias y
-              optimizando procesos. Actualmente busco oportunidades en áreas de
-              desarrollo, infraestructura o análisis de datos.
+              Mi experiencia combina soporte TI y prácticas en ProChile con
+              proyectos personales de desarrollo web, datos e IA aplicada.
             </p>
 
             <div className="about__socials">
@@ -108,6 +116,18 @@ export default function About() {
               })}
             </div>
           </motion.div>
+        </div>
+
+        <div className="about__certifications">
+          <h3 className="about__certifications-heading">Certificaciones</h3>
+          <ul className="about__certifications-list">
+            {CERTIFICATIONS.map((certification) => (
+              <li className="about__certification" key={certification.name}>
+                <span>{certification.name}</span>
+                <small>{certification.issuer}</small>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

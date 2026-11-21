@@ -42,7 +42,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6 }}>
-          <span className="section-label" style={{ textAlign: 'center' }}>
+          <span className="section-label">
             04. Contacto
           </span>
           <h2
@@ -52,8 +52,9 @@ export default function Contact() {
           </h2>
 
           <p className="contact__text">
-            Busco oportunidades en desarrollo, infraestructura o análisis de
-            datos. Si mi trabajo encaja con lo que necesitas, escríbeme.
+            Busco mi primera oportunidad junior o trainee en desarrollo de
+            software, análisis de datos, BI o IA aplicada. Si mi trabajo encaja
+            con lo que necesitas, escríbeme.
           </p>
 
           <div className="contact__actions">

@@ -3,20 +3,20 @@ import "./Skills.css";
 
 const skillCategories = [
   {
-    title: "Lenguajes de Programación",
-    skills: ["Python", "JavaScript", "HTML", "C", "C#", "C++", "Java"]
+    title: "Desarrollo de software",
+    skills: ["JavaScript", "React", "Node.js", "Express", "APIs REST"]
   },
   {
-    title: "Frameworks & Librerías",
-    skills: ["React", "Node.js", "Express", "GraphQL"]
+    title: "Datos & machine learning",
+    skills: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "Jupyter"]
   },
   {
-    title: "Bases de Datos",
-    skills: ["MySQL", "MongoDB"]
+    title: "Bases de datos & BI",
+    skills: ["SQL", "MySQL/TiDB", "MongoDB", "Power BI"]
   },
   {
-    title: "Herramientas & Metodologías",
-    skills: ["Git", "Power BI", "Postman", "Jupyter Notebook", "REST API", "Scrum"]
+    title: "Herramientas & IA aplicada",
+    skills: ["Git", "Postman", "API de Anthropic", "OpenRouter", "API de OpenAI"]
   }
 ];
 
@@ -44,7 +44,7 @@ export default function Skills() {
     <section className="section skills glass" id="skills">
       <div className="container">
         <span className="section-label">03. Habilidades</span>
-        <h2 className="section-title">Tecnologías con las que trabajo</h2>
+        <h2 className="section-title">Herramientas aplicadas en proyectos</h2>
         
         <div className="skills__grid">
           {skillCategories.map((category, idx) => (

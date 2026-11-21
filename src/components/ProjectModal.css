@@ -48,6 +48,12 @@
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.5px;
+  overflow-wrap: anywhere;
+}
+
+.modal__meta {
+  flex: 1;
+  min-width: 0;
 }
 
 .modal__close {
@@ -224,30 +230,55 @@
 
 @media (max-width: 768px) {
   .modal-backdrop {
-    padding: 12px;
+    align-items: stretch;
+    padding: 0;
   }
 
   .modal {
-    padding: 20px;
-    max-height: 92vh;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0 16px calc(24px + env(safe-area-inset-bottom));
+    border-radius: 0;
   }
 
   .modal__title {
-    font-size: 1.3rem;
+    font-size: 1rem;
+    line-height: 1.35;
   }
 
   .modal__header {
-    top: -20px;
-    margin: -20px -20px 20px;
-    padding: 16px 20px;
+    top: 0;
+    align-items: center;
+    gap: 12px;
+    margin: 0 -16px 16px;
+    padding: max(12px, env(safe-area-inset-top)) 16px 12px;
+  }
+
+  .modal__category {
+    margin-bottom: 4px;
   }
 
   .modal__iframe {
-    height: 320px;
+    height: min(42vh, 320px);
+  }
+
+  .modal__preview {
+    margin-bottom: 18px;
+  }
+
+  .modal__footer {
+    flex-direction: column;
+    gap: 8px;
   }
 
   .modal__footer .btn {
-    flex: 1;
+    flex: none;
+    width: 100%;
     justify-content: center;
+    white-space: nowrap;
   }
 }
